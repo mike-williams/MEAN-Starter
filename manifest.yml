@@ -1,0 +1,9 @@
+---
+applications:
+- name: moj-usher-clipboard
+  host: moj-usher-clipboard
+  domain: apps.eu01.cf.canopy-cloud.com
+  memory: 128M
+  command: node app.js
+  services:
+    - moj-usher-db
