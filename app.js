@@ -2,8 +2,8 @@
 const express = require('express');
 const path = require('path');
 const http = require('http');
+const fs = require('fs');
 const bodyParser = require('body-parser');
-
 
 // Get routes
 const userRoutes = require('./server/user/userRoutes');
@@ -17,8 +17,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Point static path to dist
 app.use(express.static(path.join(__dirname, 'dist')));
 
-const assert = require('assert');
-
 // Set our api routes
 app.use('/api', userRoutes);
 
@@ -28,17 +26,17 @@ app.get('*', (req, res) => {
 });
 
 /**
- * Get port from environment and store in Express.
- */
+* Get port from environment and store in Express.
+*/
 const port = process.env.PORT || '3000';
 app.set('port', port);
 
 /**
- * Create HTTP server.
- */
+* Create HTTP server.
+*/
 const server = http.createServer(app);
 
 /**
- * Listen on provided port, on all network interfaces.
- */
+* Listen on provided port, on all network interfaces.
+*/
 server.listen(port, () => console.log(`Server running on localhost:${port}`));

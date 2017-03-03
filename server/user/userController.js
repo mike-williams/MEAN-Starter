@@ -1,10 +1,11 @@
 const userService = require('./userService');
+const logger = require('../utils/logger');
 
 var exports = module.exports = {};
 
 exports.getUsers = function(req, res) {
 
-  console.log('userController.getUsers()');
+  logger.debug('userController.getUsers()');
 
   var onErr = (err) => {
     console.log("Error retrieving users: " + err);
@@ -22,7 +23,9 @@ exports.getUsers = function(req, res) {
 
 exports.addUser = function(req, res) {
 
-  console.log('userController.addUser()');
+  var user = req.body;
+
+  logger.debug('userController.addUser() %j', user);
 
   var onErr = (err) => {
     console.log("Error saving users: " + err);
@@ -34,8 +37,6 @@ exports.addUser = function(req, res) {
     response.setHeader('Expires', '-1');
     response.send(data);
   };
-
-  var user = req.body;
 
   userService.addUser(user, onSuccess, onErr);
 }
