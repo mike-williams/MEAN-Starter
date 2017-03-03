@@ -17,6 +17,9 @@ export class UserListComponent implements OnInit, OnDestroy {
   subscription: Subscription;
 
   constructor(private userDataService: UserDataService) {
+
+    // The list control subscribes to the announcer observable so that it can
+    // trigger a getUsers() call when the service wants to notify
     this.subscription = this.userDataService.dataUpdatedAnnouncer$.subscribe(
       message => {
         console.log('User list update notification received');

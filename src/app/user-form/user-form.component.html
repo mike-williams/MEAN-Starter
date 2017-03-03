@@ -1,14 +1,19 @@
-<div class="container">
-    <form #userForm="ngForm" (ngSubmit)="onSubmit(); userForm.reset()">
-      <div class="form-group">
-        <label for="name">Email</label>
-        <input type="text" class="form-control" id="email" name="email" [(ngModel)]="model.email"
-          #email="ngModel" required>
-        <div [hidden]="email.valid || email.pristine"
-            class="alert alert-danger">
-         Email is required
-       </div>
-      </div>
-      <button type="submit" class="btn btn-success" [disabled]="!userForm.form.valid">Add</button>
-    </form>
+
+<div class="page-header">
+  <h3>Add User</h3>
+  <p class="error" *ngIf="errorMessage">{{errorMessage}}</p>
 </div>
+
+
+<form #userForm="ngForm" (ngSubmit)="onSubmit(); userForm.reset()">
+  <div class="form-group">
+    <label for="name">Email</label>
+    <input type="text" class="form-control" id="email" name="email" [(ngModel)]="model.email"
+      #email="ngModel" required>
+    <div [hidden]="email.valid || email.pristine"
+        class="alert alert-danger">
+     Email is required
+   </div>
+  </div>
+  <button type="submit" class="btn btn-success" [disabled]="!userForm.form.valid">Add</button>
+</form>

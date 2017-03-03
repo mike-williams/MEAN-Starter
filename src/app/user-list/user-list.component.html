@@ -1,7 +1,13 @@
-<ul>
-  <li *ngFor="let user of users">
-    {{ user.email }}
-  </li>
-</ul>
 
-<p class="error" *ngIf="errorMessage">{{errorMessage}}</p>
+<div class="page-header">
+  <h3>Current Users</h3>
+  <p class="error" *ngIf="errorMessage">{{errorMessage}}</p>
+</div>
+
+<div>
+  <ul class="list-group">
+    <li *ngFor="let user of users">
+      {{ user.email }}
+    </li>
+  </ul>
+</div>
