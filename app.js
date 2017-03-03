@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 
 
 // Get routes
-//const hearingRoutes = require('./server/hearing/hearing');
+const userRoutes = require('./server/user/userRoutes');
 
 const app = express();
 
@@ -20,7 +20,7 @@ app.use(express.static(path.join(__dirname, 'dist')));
 const assert = require('assert');
 
 // Set our api routes
-//app.use('/api', hearingRoutes);
+app.use('/api', userRoutes);
 
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {

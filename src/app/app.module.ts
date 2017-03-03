@@ -9,13 +9,15 @@ import { AlertModule } from 'ng2-bootstrap';
 // Components
 import { AppComponent } from './app.component';
 import { UserFormComponent } from './user-form/user-form.component';
+import { UserListComponent } from './user-list/user-list.component';
 
 // Services
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserFormComponent
+    UserFormComponent,
+    UserListComponent
   ],
   entryComponents: [
   ],

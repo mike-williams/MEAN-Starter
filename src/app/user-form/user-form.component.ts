@@ -5,7 +5,8 @@ import { UserDataService} from '../user-data.service'
 @Component({
   selector: 'user-form',
   templateUrl: './user-form.component.html',
-  styleUrls: ['./user-form.component.css']
+  styleUrls: ['./user-form.component.css'],
+  providers: [UserDataService]
 })
 export class UserFormComponent {
 
