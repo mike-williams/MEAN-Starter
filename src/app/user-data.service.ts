@@ -1,21 +1,25 @@
 import { Injectable } from '@angular/core';
-import {User} from './user';
-import { Http, Headers, Response, URLSearchParams } from '@angular/http';
+import { User } from './user';
+import { Http, Response} from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import { Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
 @Injectable()
 export class UserDataService {
 
-  lastId: number = 0;
-
-  users: User[] = [];
-
   constructor(private http: Http) { }
 
-  addUser(user:User) {
+  addUser(user : User): Observable<User> {
 
+    console.log('addUser');
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+
+    return this.http.post('/api/user', user , options)
+                    .map(this.extractData)
+                    .catch(this.handleError);
   }
 
   getUsers(): Observable<User[]> {

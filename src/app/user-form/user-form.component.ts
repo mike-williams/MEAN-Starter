@@ -10,6 +10,8 @@ import { UserDataService} from '../user-data.service'
 })
 export class UserFormComponent {
 
+  errorMessage: string;
+
   constructor(private userDataService : UserDataService) {
 
   }
@@ -17,8 +19,8 @@ export class UserFormComponent {
   model = new User();
 
   onSubmit() {
-    this.userDataService.addUser(this.model);
-    this.newUser();
+    this.userDataService.addUser(this.model).subscribe(
+            error => this.errorMessage = <any> error)          
   }
 
   newUser() {
