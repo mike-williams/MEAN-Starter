@@ -5,9 +5,13 @@ import { Observable } from 'rxjs/Observable';
 import { Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class UserDataService {
+
+  private dataUpdatedSource = new Subject<string>();
+  dataUpdatedAnnouncer$ = this.dataUpdatedSource.asObservable();
 
   constructor(private http: Http) { }
 
@@ -20,6 +24,11 @@ export class UserDataService {
     return this.http.post('/api/user', user , options)
                     .map(this.extractData)
                     .catch(this.handleError);
+  }
+
+  refresh() {
+    console.log('refresh');
+    this.dataUpdatedSource.next('updated');
   }
 
   getUsers(): Observable<User[]> {
