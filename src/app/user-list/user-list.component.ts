@@ -29,6 +29,7 @@ export class UserListComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    // init
     this.getUsers();
   }
 

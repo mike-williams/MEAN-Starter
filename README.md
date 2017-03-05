@@ -1,6 +1,10 @@
-# Hello MEAN
+# MEAN Starter
+Hello! This is a quick reference project for creating an application based on the MEAN stack. The intention is to explore the stack and provide a reference point for creating any future templates.
 
-This documentation is a work in progress
+## Technologies
+ * AngularJS 2
+ * MySQL
+ * NodeJS Express
 
 
 ## Prerequisites
@@ -18,14 +22,15 @@ If an update is required in Europa/CentOs then try these commands:
  * `sudo npm install -g n`
  * `sudo n latest`
  * Restart terminal then verify updated version with `node -v` 
- 
-## Dev Setup
-(work in progress)
-- Clone from GitHub
-- Run `npm install` from the root of the project
-- Start a mongo docker container: `docker run -p 27017:27017 -d -v ~/Documents/mongo-data:/data/db --name mongo-db mongo`
-- Run `npm run build` to start
 
+## Development Environment
+ * Europa v1.0.0
+ * Atom IDE (https://atom.io)
+ * Code documentation plugin (https://atom.io/packages/docblockr)
+ * Typescript plugin - atom-typescript
+ * `sudo npm install -g typescript` and `sudo npm install -g typings`
+ 
+## Database
 - Install sequelize cli `sudo npm install -g sequelize-cli`
 - `sequelize init`
 

@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { User } from '../user';
-import { UserDataService} from '../user-data.service'
+import { UserDataService} from '../user-data.service';
 
 @Component({
   selector: 'user-form',

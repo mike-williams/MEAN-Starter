@@ -15,7 +15,7 @@ export class UserDataService {
 
   constructor(private http: Http) { }
 
-  addUser(user : User): Observable<User> {
+  addUser(user: User): Observable<User> {
 
     console.log('addUser');
     let headers = new Headers({ 'Content-Type': 'application/json' });
@@ -27,7 +27,7 @@ export class UserDataService {
   }
 
   refresh() {
-    console.log('refresh');
+    console.log('refreshing');
     this.dataUpdatedSource.next('updated');
   }
 
