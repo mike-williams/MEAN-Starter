@@ -1,30 +1,31 @@
 import { Router, Request, Response, NextFunction } from 'express';
+import { UserService } from './userService';
 import { logger } from '../utils/logger';
 
 export class UserRouter {
-
   router: Router;
-  testData: [];
+  service : UserService;
 
-  constructor() {
+  constructor(private userService : UserService) {
     this.router = Router();
-    this.testData = [{"email":"mike.williams@atos.net"}, {"email":"email@test.com"}];
     this.init();
   }
 
   public getAll = (req, res) => {
     logger.debug("getAll users");
-    res.send(this.testData);
+
+    let users = this.userService.getUsers();
+    res.send(users);
   }
 
   public add = (req, res) => {
     logger.debug("addUser");
 
     //logger.debug('post data = ' + JSON.stringify(req.body));
-    this.testData.push(req.body);
+    let result = this.userService.addUser(req.body);
 
     res.setHeader('Expires', '-1');
-    res.json(req.body);
+    res.json(result);
   }
 
   init() {
@@ -33,7 +34,7 @@ export class UserRouter {
   }
 }
 
-const userRoutes = new UserRouter();
+const userRoutes = new UserRouter(new UserService());
 userRoutes.init();
 
 module.exports = userRoutes;
