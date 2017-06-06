@@ -1,11 +1,10 @@
 {
-  "project": {
-    "version": "1.0.0-beta.25.5",
-    "name": "hello-mean"
+  "project": {   
+    "name": "mean-starter"
   },
   "apps": [
     {
-      "root": "./src",
+      "root": "src",
       "outDir": "dist",
       "assets": [
         "assets",

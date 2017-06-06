@@ -1,25 +1,17 @@
 {
   "compilerOptions": {
+    "declaration": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "allowJs": true,
-    "allowSyntheticDefaultImports" : true,
     "lib": ["es6", "dom"],
+    "mapRoot": "../dist/server",
     "module": "commonjs",
     "moduleResolution": "node",
-    "strictNullChecks": false,
+    "outDir": "../dist/server",
     "sourceMap": true,
-    "target": "es5",
-    "outDir": "../dist",
-    "baseUrl": "../dist/server",
+    "target": "es6",
     "typeRoots": [
       "../node_modules/@types"
-    ]},
-    "include": [
-        "**/*",
-        "../app.js"
-    ],
-    "exclude": [
-        "**/*.spec.ts"
     ]
+  }
 }

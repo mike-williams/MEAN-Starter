@@ -37,4 +37,4 @@ export class UserRouter {
 const userRoutes = new UserRouter(new UserService());
 userRoutes.init();
 
-module.exports = userRoutes;
+export { userRoutes }
